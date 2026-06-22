@@ -704,6 +704,19 @@ section {
   color: var(--teal-dark);
 }
 
+.testimonial-image-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.testimonial-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--soft-shadow);
+}
+
 .transformation-section {
   background: #fffaf4;
   text-align: center;
