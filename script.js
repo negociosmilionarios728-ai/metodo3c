@@ -144,39 +144,24 @@ INITIATE CHECKOUT
 
 document.querySelectorAll('a[href*="zuckpay"]').forEach(button => {
 
-  button.addEventListener('click', function (e) {
+button.addEventListener('click', function(e){
 
-    e.preventDefault();
+e.preventDefault();
 
-
-    if (typeof fbq !== "undefined") {
-
-      fbq('track', 'InitiateCheckout');
-
-    }
+alert("capturou clique");
 
 
-    setTimeout(() => {
-
-      const url = new URL(this.href);
-
-      const currentParams = new URLSearchParams(window.location.search);
-
-      currentParams.forEach((value, key) => {
-
-        if (!url.searchParams.has(key)) {
-
-          url.searchParams.set(key, value);
-
-        }
-
-      });
-
-      window.location.href = url.toString();
-
-    }, 300);
+fbq('track','InitiateCheckout');
 
 
-  });
+setTimeout(()=>{
+
+window.location.href=this.href;
+
+},2000);
+
+
+});
+
 
 });
