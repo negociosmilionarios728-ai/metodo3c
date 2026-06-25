@@ -411,5 +411,51 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const currentParams = new URLSearchParams(window.location.search);
+
+    const checkoutButtons = [
+        "btn-navbar",
+        "btn-hero",
+        "btn-transformacao",
+        "btn-oferta",
+        "btn-footer",
+        "btn-lite"
+    ];
+
+    checkoutButtons.forEach(function(buttonId){
+
+        const button = document.getElementById(buttonId);
+
+        if(button && currentParams.toString()){
+
+            const checkoutUrl = new URL(
+                button.getAttribute("href"),
+                window.location.href
+            );
+
+            currentParams.forEach(function(value,key){
+
+                if(!checkoutUrl.searchParams.has(key)){
+                    checkoutUrl.searchParams.set(key,value);
+                }
+
+            });
+
+            button.setAttribute(
+                "href",
+                checkoutUrl.toString()
+            );
+
+        }
+
+    });
+
+});
+
+</script>
   </body>
 </html>
