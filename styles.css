@@ -250,6 +250,48 @@ h3 {
   padding: 0 clamp(20px, 5vw, 82px);
 }
 
+.living-this-strip {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(20px, 4vw, 44px);
+  align-items: center;
+  max-width: 1180px;
+  margin: 0 auto 32px;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(47, 168, 102, 0.2);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--soft-shadow);
+}
+
+.living-this-strip h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+}
+
+.living-this-strip ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.living-this-strip li {
+  position: relative;
+  padding-left: 30px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.living-this-strip li::before {
+  position: absolute;
+  left: 0;
+  color: #2fa866;
+  content: "✓";
+  font-weight: 900;
+}
+
 .hero-visual {
   position: relative;
   min-height: 590px;
@@ -448,6 +490,23 @@ section {
   margin-bottom: 20px;
   color: var(--teal-dark);
   font-weight: 900;
+}
+
+.sleep-reason-section {
+  background: #fffaf4;
+}
+
+.sleep-reason-section .method-copy {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.sleep-reason-section .steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sleep-reason-section .steps div {
+  grid-template-columns: 44px 1fr;
 }
 
 .method-section {
@@ -681,6 +740,31 @@ section {
   color: #fff;
 }
 
+.bonus-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.bonus-value span {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.bonus-value strong {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  margin-top: 0;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--teal-dark);
+  font-size: 0.86rem;
+}
+
 .results-section {
   background: var(--sky);
 }
@@ -764,15 +848,25 @@ section {
 
 .offer-card {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 30px;
-  max-width: 1040px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.48fr);
+  gap: clamp(28px, 5vw, 58px);
+  max-width: 1220px;
   margin: 0 auto;
-  padding: clamp(26px, 5vw, 46px);
+  padding: clamp(30px, 6vw, 64px);
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #fff;
   box-shadow: var(--shadow);
+}
+
+.offer-card h2 {
+  font-size: clamp(2.35rem, 4.8vw, 4.25rem);
+}
+
+.offer-lead {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.16rem;
 }
 
 .offer-list {
@@ -827,9 +921,9 @@ section {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 16px;
-  width: fit-content;
+  width: min(100%, 620px);
   margin: 22px 0 0;
-  padding: 14px 16px;
+  padding: 18px;
   border: 1px solid rgba(47, 168, 102, 0.22);
   border-radius: 8px;
   background: #f5fbf2;
@@ -849,8 +943,8 @@ section {
   display: inline-flex;
   align-items: baseline;
   justify-content: center;
-  min-width: 64px;
-  padding: 8px 10px;
+  min-width: 78px;
+  padding: 10px 12px;
   border-radius: 8px;
   background: #fff;
   color: var(--muted);
@@ -861,7 +955,7 @@ section {
 
 .countdown-timer strong {
   color: var(--teal-dark);
-  font-size: 1.15rem;
+  font-size: 1.42rem;
 }
 
 .price-box {
@@ -869,7 +963,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 28px;
+  padding: clamp(28px, 4vw, 42px);
   border-radius: 8px;
   background: var(--teal-dark);
   color: #fff;
@@ -878,6 +972,8 @@ section {
 .price-box .button-primary {
   background: #4fb7df;
   box-shadow: 0 16px 30px rgba(27, 114, 158, 0.24);
+  min-height: 60px;
+  font-size: 1.08rem;
 }
 
 .price-box .button-primary:hover {
@@ -906,7 +1002,7 @@ section {
   display: block;
   margin: 4px 0;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.65rem, 4vw, 3.7rem);
+  font-size: clamp(3.2rem, 5.4vw, 5.4rem);
   line-height: 0.96;
 }
 
@@ -1085,6 +1181,11 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .living-this-strip,
+  .sleep-reason-section .steps {
+    grid-template-columns: 1fr;
+  }
+
   .hero-visual,
   .carousel-track,
   .carousel-slide img {
@@ -1103,7 +1204,7 @@ details p {
   }
 
   .price-box {
-    max-width: 420px;
+    max-width: none;
   }
 }
 
@@ -1186,6 +1287,19 @@ details p {
 
   .price-box {
     padding: 22px;
+  }
+
+  .countdown-box {
+    width: 100%;
+  }
+
+  .countdown-timer {
+    width: 100%;
+  }
+
+  .countdown-timer span {
+    flex: 1;
+    min-width: 0;
   }
 
   .price-box strong {
